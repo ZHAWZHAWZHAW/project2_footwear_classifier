@@ -1,40 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Classification</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #0061ff, #60efff);
+            /* Blau zu hellem Blau */
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.5s ease;
+        }
+
+        .content-container {
+            background-color: #f8f9fa;
+            /* Helles Grau für den Container */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 600px;
+            transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .content-container:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+            transform: scale(1.02);
+        }
+
+        h1 {
+            color: #0056b3;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        #answerPart {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        #answerPart:hover {
+            background-color: #ddefff;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        input[type="file"] {
+            transition: background-color 0.25s ease-out;
+        }
+
+        input[type="file"]:hover {
+            background-color: #cceeff;
+        }
+
+        .progress {
+            height: 20px;
+        }
+
+        .progress-bar {
+            background-color: #4CAF50;
+            /* Grüne Farbe für positive Wahrscheinlichkeiten */
+        }
+    </style>
     <script src="script.js" async></script>
 </head>
 
 <body>
-
-    <div class="container-fluid">
-        <h1>Footwear Classification</h1>
-        <p>DeepJavaLibrary (DJL) Demonstration by mosa</p>
-
+    <div class="content-container">
+        <h1>Project 2 schneli3</h1>
+        <h3>Footwear Classification</h3>
         <form>
             <div class="form-group">
-                <label for="exampleFormControlFile1">Bitte Bild hochladen (jpeg, png)</label>
+                <label for="image">Bitte Bild hochladen (jpeg, png)</label>
                 <input type="file" accept="image/png, image/jpeg" class="form-control-file" id="image" name="image"
                     onchange="checkFiles(this.files);">
             </div>
         </form>
-
         <div id="answerPart" style="visibility: hidden;">
-            <p><b>Answer:</b>
+            <p><b>Answer:</b></p>
             <div id="answer"></div>
-            </p>
-
-            <p id="previewPart"><b>Analyzed Image:</b>
-            <p><img id="preview" width="300" src="#" alt="preview" /></p>
-            </p>
+            <p><b>Analyzed Image:</b></p>
+            <img id="preview" src="#" alt="preview image" />
         </div>
     </div>
-
-
 </body>
 
 </html>
