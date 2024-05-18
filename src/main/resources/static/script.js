@@ -40,10 +40,10 @@ function checkFiles(files) {
     fetch('/analyze', {
         method: 'POST',
         body: formData
-    }).then(response => response.json()) // Stellen Sie sicher, dass die Antwort als JSON erwartet und verarbeitet wird
+    }).then(response => response.json())
     .then(data => {
-        console.log(data); // Zum Debuggen, um die tatsächliche Antwort zu sehen
-        displayResults(data); // Funktion zum Anzeigen der Ergebnisse
+        console.log(data);
+        displayResults(data);
     }).catch(error => {
         console.error('Fehler bei der Anfrage:', error);
         document.getElementById('answer').innerHTML = "Fehler bei der Verarbeitung Ihrer Anfrage.";
